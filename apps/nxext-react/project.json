@@ -5,14 +5,11 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nxext/vite:build",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/nxext-react",
-        "baseHref": "/",
-        "configFile": "@nxext/vite/plugins/vite",
-        "frameworkConfigFile": "@nxext/react/plugins/vite"
+        "outputPath": "dist/apps/nxext-react"
       },
       "configurations": {
         "development": {
@@ -38,13 +35,10 @@
       }
     },
     "serve": {
-      "executor": "@nxext/vite:dev",
+      "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "outputPath": "dist/apps/nxext-react",
-        "baseHref": "/",
-        "configFile": "@nxext/vite/plugins/vite",
-        "frameworkConfigFile": "@nxext/react/plugins/vite"
+        "buildTarget": "nxext-react:build"
       },
       "configurations": {
         "development": {

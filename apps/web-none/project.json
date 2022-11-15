@@ -6,13 +6,10 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/js:babel",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "main": "apps/web-none/src/main.ts",
-        "outputPath": "dist/apps/web-none",
-        "tsConfig": "apps/web-none/tsconfig.app.json",
-        "assets": ["apps/web-none/src/favicon.ico", "apps/web-none/src/assets"]
+        "outputPath": "dist/apps/web-none"
       }
     },
     "lint": {
@@ -28,6 +25,22 @@
       "options": {
         "jestConfig": "apps/web-none/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "web-none:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "web-none:build:development"
+        },
+        "production": {
+          "buildTarget": "web-none:build:production",
+          "hmr": false
+        }
       }
     }
   }

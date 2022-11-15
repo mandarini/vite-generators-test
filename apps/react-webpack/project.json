@@ -5,24 +5,11 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/apps/react-webpack",
-        "index": "apps/react-webpack/src/index.html",
-        "baseHref": "/",
-        "main": "apps/react-webpack/src/main.tsx",
-        "polyfills": "apps/react-webpack/src/polyfills.ts",
-        "tsConfig": "apps/react-webpack/tsconfig.app.json",
-        "assets": [
-          "apps/react-webpack/src/favicon.ico",
-          "apps/react-webpack/src/assets"
-        ],
-        "styles": ["apps/react-webpack/src/styles.css"],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "outputPath": "dist/apps/react-webpack"
       },
       "configurations": {
         "development": {
@@ -48,11 +35,10 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "react-webpack:build",
-        "hmr": true
+        "buildTarget": "react-webpack:build"
       },
       "configurations": {
         "development": {

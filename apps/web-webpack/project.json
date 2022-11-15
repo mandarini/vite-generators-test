@@ -6,23 +6,11 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/web-webpack",
-        "compiler": "babel",
-        "main": "apps/web-webpack/src/main.ts",
-        "tsConfig": "apps/web-webpack/tsconfig.app.json",
-        "assets": [
-          "apps/web-webpack/src/favicon.ico",
-          "apps/web-webpack/src/assets"
-        ],
-        "index": "apps/web-webpack/src/index.html",
-        "baseHref": "/",
-        "polyfills": "apps/web-webpack/src/polyfills.ts",
-        "styles": ["apps/web-webpack/src/styles.css"],
-        "scripts": []
+        "outputPath": "dist/apps/web-webpack"
       },
       "configurations": {
         "production": {
@@ -42,7 +30,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/vite:dev-server",
       "options": {
         "buildTarget": "web-webpack:build"
       },
