@@ -1,0 +1,34 @@
+{
+  "name": "web-none",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web-none/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:babel",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/web-none/src/main.ts",
+        "outputPath": "dist/apps/web-none",
+        "tsConfig": "apps/web-none/tsconfig.app.json",
+        "assets": ["apps/web-none/src/favicon.ico", "apps/web-none/src/assets"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web-none/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web-none/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

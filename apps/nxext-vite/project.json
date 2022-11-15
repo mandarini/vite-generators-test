@@ -1,0 +1,60 @@
+{
+  "name": "nxext-vite",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nxext-vite/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nxext/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/nxext-vite",
+        "baseHref": "/",
+        "configFile": "@nxext/vite/plugins/vite"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/nxext-vite/src/environments/environment.ts",
+              "with": "apps/nxext-vite/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nxext/vite:dev",
+      "options": {
+        "outputPath": "dist/apps/nxext-vite",
+        "baseHref": "/",
+        "configFile": "@nxext/vite/plugins/vite"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/nxext-vite/src/environments/environment.ts",
+              "with": "apps/nxext-vite/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nxext-vite/**/*.{ts,js,tsx,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nxext/vitest:vitest",
+      "options": {
+        "vitestConfig": "apps/nxext-vite/vitest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
