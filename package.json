@@ -1,0 +1,20 @@
+{
+  "name": "test-generators",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/cli": "7777.22.0",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "7777.22.0",
+    "nx": "7777.22.0",
+    "prettier": "^2.6.2",
+    "typescript": "~4.8.2"
+  }
+}
